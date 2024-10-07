@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy_prefab: {fileID: 8981753528150285342, guid: f2e2d9fd97c989d4ba3347d29bca2e10, type: 3}
-  base_respawn_cadence: 5.03
-  day_mult: 0.5
-  night_mult: 0.2
+  base_respawn_cadence: 10
+  day_mult: 1
+  night_mult: 0.5

@@ -23,8 +23,8 @@ public class GameManager : MonoBehaviour
 
     float time_of_day = 0;
     
-    public float day_night_cycle_time = 40; // s
-    public float night_transition_time = 10; // s
+    public float day_night_cycle_time = 86; // s
+    public float night_transition_time = 28; // s
     public float color_transition_time = 5;
 
     Color night_color = new Color(161.0f/255.0f, 87.0f/255.0f, 203.0f/255.0f);
@@ -75,6 +75,7 @@ public class GameManager : MonoBehaviour
         game_ui.GetComponent<GameUI>().set_bunnies_text(total_villagers.ToString());
 
         Debug.Log("initial villagers: " + total_villagers);
+        AudioManager.instance.Play("bear_anthem");
 
     }
 

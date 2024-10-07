@@ -23,6 +23,7 @@ public class Tree : Interactable
 	public Hut hut_prefab;
 	public GameObject acorn_prefab;
 	public AnimationClip fall_clip;
+	public AnimationClip shake_clip;
 
 	State curr_tree_state;
 
@@ -30,6 +31,7 @@ public class Tree : Interactable
 	Animator tree_animator;
 	bool has_acorn;
 	bool is_tree_fall;
+	bool is_tree_shake;
 	public int tree_on_ground_time = 5;
 	bool can_transition;
 
@@ -42,6 +44,8 @@ public class Tree : Interactable
 		StartCoroutine(generate_acorn());
 		tree_animator = GetComponent<Animator>();
 		is_tree_fall = false;
+		is_tree_shake = false;
+		tree_animator.SetBool("is_tree_shake", false);
 		can_transition = false;
 	}
 
@@ -125,18 +129,26 @@ public class Tree : Interactable
 		
 	}
 
+	IEnumerator wait_for_tree_shake_anim()
+    {
+		float wait_time = shake_clip.length;
+		yield return new WaitForSeconds(wait_time);
+		is_tree_shake = false;
+    }
+
 	void shake()
 	{
 		if (curr_tree_state == State.Default) {
 			// rustle animation
-
-			AudioManager.instance.Play("Tree Rustle");
+			is_tree_shake = true;
+			tree_animator.SetBool("is_tree_shake", true);
 			if (has_acorn) {
 				// TODO: drop acorn here'
 				//Debug.Log("Drop Acorn");
 				current_acorn.GetComponent<Acorn>().fall_from_tree();
 				StartCoroutine(generate_acorn());
 			}
+			StartCoroutine(wait_for_tree_shake_anim());
 		}
 	}
 

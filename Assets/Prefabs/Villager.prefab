@@ -104,15 +104,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move_speed: 1
-  flee_speed: 3
-  gather_time: 1
-  max_move_distance: 10
-  min_move_distance: 5
+  flee_speed: 2
+  gather_time: 2
+  max_move_distance: 5
+  min_move_distance: 2
   tombstone_prefab: {fileID: 3080694084848306571, guid: c2c5d32d5d148e240a53b0e6bf1de1e2, type: 3}
   state_debug_text: {fileID: 1975176226012461580}
   fear_cooldown: 4
-  bear_flee_radius: 4
-  enemy_flee_radius: 0
+  bear_flee_radius: 2
+  enemy_flee_radius: 4
   resource_gather_radius: 0
   interior_collider: {fileID: 6141478406896541672}
 --- !u!70 &6141478406896541672
@@ -262,7 +262,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2873264763234692735
 RectTransform:
   m_ObjectHideFlags: 0

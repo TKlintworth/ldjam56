@@ -112,13 +112,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8450715236423612919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.18, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 12, z: 1}
+  m_LocalPosition: {x: 2.18, y: 0, z: -4}
+  m_LocalScale: {x: 12, y: 12, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8450715235877796475}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8450715236423612917
 MonoBehaviour:
@@ -132,14 +132,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb981d1138320204c997659cc7ec03ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fall_speed_thresh: 1.2
+  fall_speed_thresh: 1.5
   acorn_spawn_area: {fileID: 8450715235877796468}
-  avg_acorn_spawn_min: 2
-  avg_acorn_spawn_max: 4
+  avg_acorn_spawn_min: 4
+  avg_acorn_spawn_max: 8
   acorn_generation_radius: 0.27
   hut_prefab: {fileID: 7565769015680471623, guid: 953c9fef54bcaf44b82ec0b78aac5a17, type: 3}
   acorn_prefab: {fileID: 7241066637644093509, guid: 209c00147e6d8f94e997a2b3865867eb, type: 3}
   fall_clip: {fileID: 7400000, guid: 55b9f9c793412e44195f0dd0f58f39a9, type: 2}
+  shake_clip: {fileID: 7400000, guid: ddc04c1e594944049a1bc455773d0a30, type: 2}
   tree_on_ground_time: 5
 --- !u!61 &8450715236423612916
 BoxCollider2D:

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-	public int moveSpeed;
+	public float moveSpeed;
 	Transform attackTarget;
 	GameObject[] active_villagers;
 	GameObject target_villager;
