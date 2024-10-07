@@ -1,0 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class GatheringState : IState
+{
+    public void OnEnter() { }
+    public void UpdateState() { }
+    public void FixedUpdateState() { }
+    public void OnExit() { }
+}
