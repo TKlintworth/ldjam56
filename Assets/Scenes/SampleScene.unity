@@ -7994,21 +7994,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 188514035, guid: 731dd45f1ba739741b620bb89468ab8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 188514035, guid: 731dd45f1ba739741b620bb89468ab8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.18
+      objectReference: {fileID: 0}
     - target: {fileID: 1435744248118083686, guid: 731dd45f1ba739741b620bb89468ab8a, type: 3}
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1435744248118083686, guid: 731dd45f1ba739741b620bb89468ab8a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1435744248118083686, guid: 731dd45f1ba739741b620bb89468ab8a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1435744248118083686, guid: 731dd45f1ba739741b620bb89468ab8a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.054173537
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1435744248118083686, guid: 731dd45f1ba739741b620bb89468ab8a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -124761,6 +124769,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acorn_count: {fileID: 1085983751}
   bunny_count: {fileID: 820100594}
+  dial: {fileID: 1928279650}
+  time_dial: {fileID: 95420891}
 --- !u!1001 &1028867396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -133042,6 +133052,10 @@ PrefabInstance:
     - target: {fileID: 3290958939641199636, guid: 36010f0c52940bc498f4eda54141dbd5, type: 3}
       propertyPath: m_Name
       value: Villager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8513123707231715610, guid: 36010f0c52940bc498f4eda54141dbd5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

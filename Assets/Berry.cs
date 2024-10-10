@@ -12,6 +12,7 @@ public class Berry : Interactable
 
     bool picked;
     public bool is_piled;
+    public bool is_pileable;
 
     Rigidbody2D rb;
 
@@ -25,6 +26,7 @@ public class Berry : Interactable
         rb = GetComponent<Rigidbody2D>();
         collectable = false;
         picked = false;
+        is_pileable = true;
     }
 
     // Update is called once per frame
@@ -58,6 +60,12 @@ public class Berry : Interactable
         rb.gravityScale = 0;
         // Add the Resource tag to berry
         
+    }
+
+    
+    public void scoop()
+    {
+        is_pileable = false;
     }
 
     public void pile()

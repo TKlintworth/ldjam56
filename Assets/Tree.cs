@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Tree : Interactable
 {
 
-	public float fall_speed_thresh;
+	private float fall_speed_thresh;
+	private float acrorn_speed_thresh;
+
 	public enum State
 	{
 		Default,
@@ -16,6 +19,8 @@ public class Tree : Interactable
 
 	public int avg_acorn_spawn_min = 10;
 	public int avg_acorn_spawn_max = 16;
+
+	public int hut_cost = 2;
 
 	Transform acorn_generation_transform;
 	public float acorn_generation_radius;
@@ -35,6 +40,10 @@ public class Tree : Interactable
 	public int tree_on_ground_time = 5;
 	bool can_transition;
 
+	public TextMeshProUGUI ui_msg;
+	public GameObject ui_msg_go;
+
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -47,6 +56,10 @@ public class Tree : Interactable
 		is_tree_shake = false;
 		tree_animator.SetBool("is_tree_shake", false);
 		can_transition = false;
+		fall_speed_thresh = GameManager.instance.get_max_bear_speed() * 0.75f;
+		acrorn_speed_thresh = GameManager.instance.get_max_bear_speed() * 0.3f;
+
+
 	}
 
 	// Update is called once per frame
@@ -66,7 +79,8 @@ public class Tree : Interactable
 			{
 				fall(collision.gameObject.GetComponent<Bear>());
 			}
-			else {
+			else if (bear_vel.magnitude >= acrorn_speed_thresh)
+			{
 				shake();
 			}
 
@@ -90,9 +104,11 @@ public class Tree : Interactable
 			// fall animation
 			is_tree_fall = true;
 			tree_animator.SetBool("is_tree_fall", true);
-
 			curr_tree_state = State.Fallen;
 			//Debug.Log("Tree Fall");
+			ui_msg_go.SetActive(true);
+
+
 
 			Destroy(current_acorn);
 
@@ -102,9 +118,9 @@ public class Tree : Interactable
 
     public override void interact()
     {
-        if (can_transition && GameManager.instance.get_num_acorns() >= 5)
+        if (can_transition && GameManager.instance.get_num_acorns() >= hut_cost)
         {
-			GameManager.instance.use_acorns(5);
+			GameManager.instance.use_acorns(hut_cost);
 
 			Instantiate(hut_prefab, gameObject.transform.position, gameObject.transform.rotation);
 
@@ -142,7 +158,7 @@ public class Tree : Interactable
 			// rustle animation
 			is_tree_shake = true;
 			tree_animator.SetBool("is_tree_shake", true);
-			if (has_acorn) {
+			if (has_acorn && current_acorn) {
 				// TODO: drop acorn here'
 				//Debug.Log("Drop Acorn");
 				current_acorn.GetComponent<Acorn>().fall_from_tree();
@@ -167,6 +183,11 @@ public class Tree : Interactable
 		has_acorn = true;
 	}
 
+
+	public void update_acorn_text(int num_acorns)
+    {
+		ui_msg.SetText(num_acorns + "/2");
+    }
 
 
 	public static float RandomGaussian(float minValue = 0.0f, float maxValue = 1.0f)

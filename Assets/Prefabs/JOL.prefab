@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705ac4c9b03beac418f10c17c124446c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1.2
+  moveSpeed: 0.7
   animationSquish: {fileID: 7400000, guid: 9bf24375f08f8e241abda192d6cee488, type: 2}
 --- !u!70 &8981753528150285338
 CapsuleCollider2D:

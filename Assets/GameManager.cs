@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     
     public float day_night_cycle_time = 86; // s
     public float night_transition_time = 28; // s
-    public float color_transition_time = 5;
+    public float color_transition_time = 10;
 
     Color night_color = new Color(161.0f/255.0f, 87.0f/255.0f, 203.0f/255.0f);
     Color day_color = Color.white;
@@ -266,11 +266,19 @@ public class GameManager : MonoBehaviour
 
     public void add_acorn()
     {
+
         num_acorns += 1;
+        //GameObject[] trees = GameObject.FindGameObjectsWithTag("Tree");
+        //foreach (GameObject t in trees)
+        //{
+        //    t.GetComponent<Tree>().update_acorn_text(num_acorns);
+
+        //}
         // TODO: update acorn UI
         // 
         game_ui.GetComponent<GameUI>().set_acorns_text(num_acorns.ToString());
         Debug.Log(num_acorns);
+        
     }
 
     public void use_acorns(int num)
@@ -331,5 +339,21 @@ public class GameManager : MonoBehaviour
             end_menu.SetActive(true);
             end_menu.GetComponent<EndMenu>().set_stats_text("You Win!");
         }
+    }
+
+
+    public float get_bear_speed()
+    {
+        return bear.GetComponent<Bear>().rb.velocity.magnitude;
+    }
+
+    public float get_max_bear_speed()
+    {
+        return bear.GetComponent<Bear>().max_speed;
+    }
+
+    public float get_time_of_day()
+    {
+        return time_of_day;
     }
 }

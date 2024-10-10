@@ -270,7 +270,16 @@ public class Villager : MonoBehaviour
                     // instantiate a berry
                     if(carrying_resource)
                     {
-                        carrying_resource.transform.position = collision.gameObject.transform.position;
+                        //float random = Random.Range(0f, 260f);
+                        //Vector2 dir = new Vector2(Mathf.Cos(random), Mathf.Sin(random));
+                        //Vector3 placement_point = new Vector3(
+                        //    collision.gameObject.transform.position.x + dir.x + Random.Range(0f, 1.5f), 
+                        //    collision.gameObject.transform.position.y + dir.y + Random.Range(0f, 1.5f), 
+                        //    collision.gameObject.transform.position.z);
+
+
+                        carrying_resource.transform.position = gameObject.transform.position;
+                        Debug.Log(carrying_resource.name);
                         if (carrying_resource.name.Contains("Acorn"))
                         {
                             carrying_resource.GetComponent<Acorn>().pile();
@@ -360,6 +369,11 @@ public class Villager : MonoBehaviour
         //carrying_resource = Instantiate(collision.gameObject.GetComponent<Berry>().me_prefab, Vector3.zero, Quaternion.identity);
 
         carrying_resource = collision.gameObject;
+        
+        if (carrying_resource.name.Contains("Berry"))
+        {
+            carrying_resource.GetComponent<Berry>().scoop();
+        }
 
         enter_piling();
     }
